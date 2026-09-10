@@ -3,63 +3,54 @@ import Produto from './Produto';
 
 const produtos = [
   {
-    id: '1',
     nome: 'Batata & Bacon',
     descricao: 'Batata frita, bacon, Catupiry e parmesão.',
     preco: 'R$ 79,90',
     imagem: require('./img-reais/pizza-batata.png')
   },
   {
-    id: '2',
     nome: 'Contrafilé Especial',
     descricao: 'Contrafilé, gorgonzola, tomate-cereja e cebola roxa.',
     preco: 'R$ 89,90',
     imagem: require('./img-reais/pizza-contrafile.png')
   },
   {
-    id: '3',
     nome: 'Salmão Cream Cheese',
     descricao: 'Salmão, cream cheese, tarê, cebolinha e gergelim.',
     preco: 'R$ 94,90',
     imagem: require('./img-reais/pizza salmao.png')
   },
   {
-    id: '4',
     nome: 'Camarão Cremoso',
     descricao: 'Camarão empanado, Catupiry e alho crocante.',
     preco: 'R$ 99,90',
     imagem: require('./img-reais/pizza-camarao.png')
   },
   {
-    id: '5',
     nome: 'Nachos Mexicana',
     descricao: 'Nachos, carne, cheddar, jalapeño e sour cream.',
     preco: 'R$ 84,90',
     imagem: require('./img-reais/pizza-mexicana.png')
   },
   {
-    id: '6',
     nome: 'Costela BBQ',
     descricao: 'Costela desfiada, barbecue, Catupiry e cebola crispy.',
     preco: 'R$ 89,90',
     imagem: require('./img-reais/pizza-costela.png')
   },
   {
-    id: '7',
     nome: 'Nutella',
     descricao: 'Nutella, M&M’s de amendoim e lascas de avelã.',
     preco: 'R$ 74,90',
     imagem: require('./img-reais/pizza-nutella.png')
   },
   {
-    id: '8',
     nome: 'Pistache',
     descricao: 'Pistache, massa kadaif crocante e creme de pistache.',
     preco: 'R$ 79,90',
     imagem: require('./img-reais/pizza-pistache.png')
   },
   {
-    id: '9',
     nome: 'Banoffee',
     descricao: 'Banana, doce de leite, Biscoff, chantilly e canela.',
     preco: 'R$ 69,90',
@@ -87,7 +78,7 @@ export default function App() {
 
         <View style={styles.lateral}>
           <TextInput
-            placeholder="🔍 Pesquisar"
+            placeholder="Pesquisar"
             style={styles.pesquisa}
           />
         </View>
@@ -95,13 +86,9 @@ export default function App() {
 
       <FlatList
         data={produtos}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Produto produto={item} />
-        )}
+        renderItem={({ item }) => <Produto produto={item} />}
         numColumns={3}
         columnWrapperStyle={styles.linha}
-        contentContainerStyle={styles.lista}
       />
     </View>
   );
@@ -117,18 +104,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 20,
-    marginBottom: 1
+    paddingTop: 10,
   },
 
   lateral: {
-    width: 230,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  centroTopo: {
-    width: 430,
+    width: 270,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -155,10 +135,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 15,
     outlineStyle: 'none'
-  },
-
-  lista: {
-    paddingBottom: 30
   },
 
   linha: {
